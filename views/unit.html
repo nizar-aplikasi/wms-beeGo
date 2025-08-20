@@ -1,0 +1,86 @@
+<body>
+  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-default">
+    Input Satuan Barang <br>
+  </button>
+  
+  <div class="row"> <hr> </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Mater Satuan Barang</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <table class="table table-bordered">
+            <thead>                  
+              <tr>  
+                <th>    Nama Barang</th>
+                <th>    Kode Barang</th>
+                <th style="width: 40px"colspan="2">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+                {{range $index, $elem := .units}}
+                <tr>
+                    <td> {{ $elem.Code}}</td>
+                    <td> {{ $elem.Name}}</td>
+                    <td><a href="/units/detail/{{ $elem.Id}}">Edit</a></td>
+                    <td><a href="/units/delete/{{ $elem.Id}}">Hapus</a></td>
+                  </tr>
+                {{end}}
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+
+      <!--Modal-->
+      <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                  <div class="card-header">
+                    <h3 class="card-title">Input barang masuk</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <!-- form start -->
+                  <form role="form" method="post" action="/units/add">
+                    <div class="card-body">
+
+                      <div class="form-group">
+                        <label for="exampleInputPassword1"> </label>
+                        <input type="hidden" class="form-control" name="id">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Kode Satuan </label>
+                        <input type="text" class="form-control" name="kode">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Nama Satuan </label>
+                        <input type="text" class="form-control" name="nama">
+                      </div>
+
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                      <button type="submit">Tambah</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.card -->
+          </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      <!-- /.modal -->
+</body>
+  
+
+
+      

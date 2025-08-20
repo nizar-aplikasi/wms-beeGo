@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../static/AdminLTE/plugins/jquery/jquery.min.js"></script>
+</head>
+<body>
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Transaksi ID</td>
+                <td>Tanggal Masuk</td>
+                <td>Tanggal Keluar</td>
+                <td>Lokasi</td>
+                <td>Kode Barang</td>
+                <td>Nama Barang</td>
+                <td>Satuan</td>
+                <td>Jumlah</td>
+                <td colspan="2">Proses</td>
+            </tr>
+        </thead>
+        <tbody>
+                {{range $index, $elem := .list}}
+                <tr>
+                    <td>{{$elem.TransaksiId}}</td>
+                    <td>{{$elem.TanggalMasuk}}</td>
+                    <td>{{$elem.TanggalKeluar}}</td>
+                    <td>{{$elem.Lokasi}}</td>
+                    <td>{{$elem.KodeBarang}}</td>
+                    <td>{{$elem.NamaBarang}}</td>
+                    <td>{{$elem.Satuan}}</td>
+                    <td>{{$elem.Jumlah}}</td>
+                    <td><a href="outcoming-goods/detail/{{$elem.Id}}">Edit </a></td>
+                    <td><a href="outcoming-goods/delete/{{$elem.Id}}">Delete </a></td>
+                </tr>
+                {{end}}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,58 @@
+# ======================
+# Go build / binaries
+# ======================
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# ======================
+# Dependency directories
+# ======================
+/vendor/
+/node_modules/
+
+# ======================
+# IDE / Editor
+# ======================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ======================
+# OS generated files
+# ======================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ======================
+# Logs
+# ======================
+*.log
+*.log.*
+
+# ======================
+# Beego / temp files
+# ======================
+/tmp/
+/uploads/
+/logs/
+/sessions/
+
+# ======================
+# Database
+# ======================
+*.db
+*.sqlite3
+
+# ======================
+# AdminLTE / static (optional, if you host separately)
+# ======================
+/static/AdminLTE/plugins/**/node_modules/
+/static/AdminLTE/plugins/**/dist/*.map

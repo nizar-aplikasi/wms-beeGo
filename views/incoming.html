@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../static/AdminLTE/plugins/jquery/jquery.min.js"></script>
+</head>
+<body>
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-default">
+        Input Barang 
+      </button>
+
+      <div>
+        <!--Blank area for spacer-->
+      </div>
+      {{ .pesan}}
+      <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Transaction ID</td>
+                <td>Tanggal</td>
+                <td>Lokasi</td>
+                <td>Kode Barang</td>
+                <td>Nama Barang</td>
+                <td>Satuan</td>
+                <td>Jumlah</td>
+                <td colspan="3">Proses</td>
+            </tr>
+        </thead>
+        <tbody>
+        {{range $index, $elem := .incoming}}
+        <tr>
+            <td>{{$elem.TransaksiId}}</td>
+            <td>{{$elem.Tanggal}}</td>
+            <td>{{$elem.Lokasi}}</td>
+            <td>{{$elem.KodeBarang}}</td>
+            <td>{{$elem.NamaBarang}}</td>
+            <td>{{$elem.Satuan}}</td>
+            <td>{{$elem.Jumlah}}</td>
+            <td><a href="/incoming-goods/detail/{{$elem.Id}}">Update </a></td>
+            <td><a href="/incoming-goods/detail-proccess/{{$elem.Id}}">Proses </a></td>
+            <td><a href="/incoming-goods/delete/{{$elem.Id}}">Hapus </a></td>
+        </tr>
+        {{end}}
+        </tbody>
+    </table>
+
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                  <div class="card-header">
+                    <h3 class="card-title">Input barang masuk</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <!-- form start -->
+                  <form role="form" method="post" action="/incoming-goods/add">
+                    <div class="card-body">
+
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Lokasi </label>
+                        <input type="text" class="form-control" name="lokasi">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Kode </label>
+                        <input type="text" class="form-control" name="kode">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Nama Barang </label>
+                        <input type="text" class="form-control" name="nama">
+                      </div>
+
+                      <select name="satuan" id="">
+                        {{range $index, $elem := .list}}
+                            <option name="" value='{{ $elem.Name}}'>{{ $elem.Name}}</option>
+                        {{end}}
+                      </select>
+
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Jumlah </label>
+                        <input type="text" class="form-control" name="jumlah">
+                      </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                      <button type="submit">Tambah</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.card -->
+          </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      <!-- /.modal -->
+</body>
+</html>

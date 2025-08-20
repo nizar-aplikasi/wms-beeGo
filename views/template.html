@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>WMS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome & Ionicons -->
+  <link rel="stylesheet" href="/static/AdminLTE/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+  <!-- Tempusdominus Bootstrap 4 & iCheck & JQVMap -->
+  <link rel="stylesheet" href="/static/AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="/static/AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="/static/AdminLTE/plugins/jqvmap/jqvmap.min.css">
+
+  <!-- Theme style & overlayScrollbars -->
+  <link rel="stylesheet" href="/static/AdminLTE/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/static/AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+
+  <!-- Daterange picker & Summernote -->
+  <link rel="stylesheet" href="/static/AdminLTE/plugins/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="/static/AdminLTE/plugins/summernote/summernote-bs4.css">
+
+  <!-- SweetAlert2 & Toastr -->
+  <link rel="stylesheet" href="/static/AdminLTE/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <link rel="stylesheet" href="/static/AdminLTE/plugins/toastr/toastr.min.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+    <a href="/logout">Logout</a>
+  </nav>
+
+  <!-- Sidebar -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <div class="sidebar">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="/static/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Larry Page</a>
+        </div>
+      </div>
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item has-treeview menu-ope"><a href="/dashboard" class="nav-link active"><i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p></a></li>
+          <li class="nav-item has-treeview menu-ope">
+            <a href="#" class="nav-link active"><i class="nav-icon fas fa-calculator"></i><p>Manajemen Barang</p></a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item"><a href="/units" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Master Satuan Barang</p></a></li>
+              <li class="nav-item"><a href="/incoming-goods" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Barang Masuk</p></a></li>
+              <li class="nav-item"><a href="/outcoming-goods" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Barang Keluar</p></a></li>
+              <li class="nav-item"><a href="/users" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Users</p></a></li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview menu-ope"><a href="/users" class="nav-link active"><i class="nav-icon fas fa-address-card"></i><p>Manajemen User</p></a></li>
+          <li class="nav-item has-treeview menu-ope"><a href="/reporting" class="nav-link active"><i class="nav-icon fas fa-address-card"></i><p>Reporting</p></a></li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Content Wrapper -->
+  <div class="content-wrapper">
+    <section class="content">
+      <div class="container-fluid">
+        {{ .LayoutContent }}
+      </div>
+    </section>
+  </div>
+
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2020 <a href="http://adminlte.io">Warehouse Management System</a>.</strong>
+    <div class="float-right d-none d-sm-inline-block"><b>Version</b> #ROOT</div>
+  </footer>
+
+  <aside class="control-sidebar control-sidebar-dark"></aside>
+</div>
+
+<!-- ================= SCRIPTS ================= -->
+
+<!-- jQuery & jQuery UI -->
+<script src="/static/AdminLTE/plugins/jquery/jquery.min.js"></script>
+<script src="/static/AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script>$.widget.bridge('uibutton', $.ui.button);</script>
+
+<!-- Bootstrap 4 -->
+<script src="/static/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/static/AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+
+<!-- Plugins -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.0/moment.min.js"></script>
+<script src="/static/AdminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="/static/AdminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="/static/AdminLTE/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="/static/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/AdminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="/static/AdminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/static/AdminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="/static/AdminLTE/plugins/sparklines/sparkline.js"></script>
+<script src="/static/AdminLTE/plugins/jquery-knob/jquery.knob.min.js"></script>
+<script src="/static/AdminLTE/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="/static/AdminLTE/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<script src="/static/AdminLTE/plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="/static/AdminLTE/plugins/toastr/toastr.min.js"></script>
+
+<!-- AdminLTE -->
+<script src="/static/AdminLTE/dist/js/adminlte.min.js"></script>
+<script src="/static/AdminLTE/dist/js/demo.js"></script>
+
+<!-- Dashboard -->
+<script>
+$(document).ready(function() {
+
+  // DataTables
+  $("#example1").DataTable({ "responsive": true, "autoWidth": true });
+  $('#example2').DataTable({ "paging": true, "lengthChange": false, "searching": false, "ordering": true, "info": true, "autoWidth": false, "responsive": true });
+
+  // Sparkline: pastikan elemen ada
+  var sparklineElem = document.getElementById("sparkline1");
+  if(sparklineElem) {
+      new Sparkline(sparklineElem, { /* options */ });
+  }
+
+  // Ambil data via AJAX
+  function getItems(){
+      $.ajax({
+          url: "http://localhost:8081/goods",
+          method: "GET",
+          contentType: 'application/json',
+      })
+      .then(data=>{
+          data.forEach(element => {
+              $("tbody").append(
+                  "<tr>"+
+                  "<td>"+ element.transaksi_id +"</td>" +
+                  "<td>"+ element.tanggal +"</td>" +
+                  "<td>"+ element.lokasi +"</td>" +
+                  "<td>"+ element.kodebarang +"</td>" +
+                  "<td>"+ element.namabarang +"</td>" +
+                  "<td>"+ element.satuan +"</td>" +
+                  "<td>"+ element.jumlah +"</td>" +
+                  "<td><a href='incoming/edit/"+ element.id +"'>Ubah</a></td>" +
+                  "<td><a href='incoming/delete/"+ element.id +"'>Hapus</a></td>" +
+                  "</tr>"
+              );
+          });
+      })
+      .catch(e=>console.log(e));
+  }
+  getItems();
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<div class="col-md-6">
+  <!-- general form elements -->
+
+  {{if .errormsg}}
+      <div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                  {{ .errormsg}}
+                </div>
+  {{end}}
+
+  
+  <div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">Proses Barang Keluar</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <div class="col-md-6">
+            <div class="card">
+              <!-- /.card-header -->
+              <div class="card-body">
+                <dl>
+                  <dt>Transaksi ID</dt>
+                  <dd>{{ .detail.TransaksiId}}</dd>
+                  <dt>Tanggal</dt>
+                  <dd>{{ .detail.Tanggal}}</dd>
+                  <dt>Kode Barang</dt>
+                  <dd>{{ .detail.KodeBarang}}</dd>
+                  <dt>Nama Barang</dt>
+                  <dd>{{ .detail.NamaBarang}}</dd>
+                  <dt>Jumlah Barang</dt>
+                  <dd id="max">{{ .detail.Jumlah}}</dd>
+                </dl>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- ./col -->
+    <form role="form" method="POST" action="/incoming-goods/proccess/{{ .detail.Id}}">
+      <div class="card-body">
+        
+
+        <div class="form-group">
+          <input type="hidden" name="trxId" class="form-control" id="" value='{{ .detail.TransaksiId}}' >
+        </div>
+
+        <div class="form-group">
+          <input type="hidden" name="tanggal" class="form-control" id="" value='{{ .detail.Tanggal}}' >
+        </div>
+
+        <div class="form-group">
+          <input type="hidden" name="lokasi" class="form-control" id="" value='{{ .detail.Lokasi}}'>
+        </div>
+
+        <div class="form-group">
+          <input type="hidden" name="kode" class="form-control" id="" value='{{ .detail.KodeBarang}}'>
+        </div>
+
+        <div class="form-group">
+          <input type="hidden" name="nama" class="form-control" id="" value='{{ .detail.NamaBarang}}'>
+        </div>
+
+        <div class="form-group">
+          <input type="hidden" name="satuan" class="form-control" id="" value='{{ .detail.Satuan}}'>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Akan dikeluarkan sejumlah </label>
+          <input type="text" name="jumlah" class="form-control" id="jumlah" autofocus>
+        </div>
+      </div>
+      <!-- /.card-body -->
+
+      <div class="card-footer">
+        <a href="/dashboard" class="btn btn-primmary">Kembali</a>
+        <button type="submit" onsubmit="cekMax()" class="btn btn-primary">Proses</button>
+      </div>
+    </form>
+  </div>
+  <!-- /.card -->
+
+</div>
+<script>
+  function cekMax(){
+    let max = document.getElementById("max")
+    let jumlah = document.getElementById("jumlah").val()
+    if(jumlah > max){
+      alert("Barang yang akan dikeluarkan lebih dari stock barang")
+    }
+  }
+</script>

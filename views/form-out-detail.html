@@ -1,0 +1,78 @@
+<div class="col-md-6">
+  <!-- general form elements -->
+
+  {{if .errormsg}}
+      <div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                  {{ .errormsg}}
+                </div>
+  {{end}}
+
+  <div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">Ubah Data Barang Keluar</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form role="form" method="POST" action='/outcoming-goods/update/{{ .detail.Id}}'>
+      <div class="card-body">
+        <div class="form-group">
+          <input type="hidden" class="form-control" id="" >
+        </div>
+
+        <div class="form-group">
+          <label for=""> Transaksi ID</label>
+          <input type="text" name="trxId" class="form-control" id="" value='{{ .detail.TransaksiId}}' disabled>
+        </div>
+
+        <div class="form-group">
+          <label for=""> Tanggal Masuk </label>
+          <input type="text" name="tanggalmasuk" class="form-control" id="" value='{{ .detail.TanggalMasuk}}' disabled>
+        </div>
+
+        <div class="form-group">
+          <label for=""> Tanggal Keluar </label>
+          <input type="text" name="tanggalkeluar" class="form-control" id="" value='{{ .detail.TanggalKeluar}}' disabled>
+        </div>
+
+        <div class="form-group">
+          <label for="">Lokasi Gudang</label>
+          <input type="text" name="lokasi" class="form-control" id="" value='{{ .detail.Lokasi}}'>
+        </div>
+
+        <div class="form-group">
+          <label for="">Kode Barang</label>
+          <input type="text" name="kode" class="form-control" id="" value='{{ .detail.KodeBarang}}'>
+        </div>
+
+        <div class="form-group">
+          <label for="">Nama Barang</label>
+          <input type="text" name="nama" class="form-control" id="" value='{{ .detail.NamaBarang}}'>
+        </div>
+
+        <!-- <div class="form-group">
+          <label for="exampleInputEmail1">Satuan</label> <br>
+          <select name="namaSatuan" id="">
+              {{range $index, $elem := .list}}
+                <option name="nama" value='{{$elem.Name}}'>{{$elem.Name}}</option>
+              {{end}}
+            </select>
+        </div> -->
+
+        <div class="form-group">
+        <label for="exampleInputEmail1">Jumlah</label>
+          <input type="text" name="jumlah" class="form-control" id="exampleInputEmail1" value='{{ .detail.Jumlah}}'>
+        </div>
+      </div>
+      <!-- /.card-body -->
+
+      <div class="card-footer">
+        <a href="/dashboard" class="btn btn-primmary">Kembali</a>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+    </form>
+  </div>
+  <!-- /.card -->
+
+</div>

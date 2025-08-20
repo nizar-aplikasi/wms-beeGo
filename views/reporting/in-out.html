@@ -1,0 +1,47 @@
+<div class="col-6">
+{{if .flash.success}}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      <span class="sr-only">Close</span>
+    </button>
+    <strong>{{.flash.success}}</strong> 
+    <a href="/static/laporan-keluar-masuk-barang.xlsx">Get File</a>
+  </div>
+{{else if .flash.error}}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      <span class="sr-only">Close</span>
+    </button>
+    <strong>{{.flash.error}}</strong> 
+  </div>
+{{end}}
+  <p class="lead">Laporan Keluar - Masuk Barang Gudang</p>
+  <div class="table-responsive">
+    <table class="table">
+      <tr>
+        <th style="width: 50%;">Nama Barang</th>
+        <th style="width: 50%;">Lokasi</th>
+        <th style="width: 50%;">Kode</th>
+        <th style="width: 50%;">Satuan</th>
+        <th style="width: 50%;">Jumlah Barang Masuk</th>
+        <th style="width: 50%;">Jumlah Barang Keluar</th>
+        <th style="width: 50%;">Sisa Barang</th>
+      </tr>
+
+      {{range $index,$elem := .list}}
+      <tr>
+        <td>{{$elem.NamaBarang}}</td>
+        <td>{{$elem.Lokasi}}</td>
+        <td>{{$elem.Kode}}</td>
+        <td>{{$elem.Satuan}}</td>
+        <td><span>{{$elem.JumlahMasuk}}</span></td>
+        <td><span>{{$elem.JumlahKeluar}}</span></td>
+        <td><span>{{$elem.Sisa}}</span></td>
+      </tr>
+      {{end}}
+    </table>
+    <a href="/reporting/export" class="btn btn-success">Export To Excell</a>
+  </div>
+</div>
