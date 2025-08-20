@@ -45,8 +45,6 @@ Project ini dibuat untuk belajar Clean Architecture di Go, integrasi database Po
 - Lihat laporan: `/reporting` (GET)  
 - Export laporan: `/reporting/export` (GET)
 
----
-
 ## 🛠 Teknologi
 
 - **Backend**: Go Lang, Beego Framework  
